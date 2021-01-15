@@ -10,7 +10,7 @@ export class CustomersListComponent implements OnInit {
 
   private _customers: Customer[] = [];
   filteredCustomers: Customer[] = [];
-  customersOderTotal: number;
+  customersOrderTotal: number;
   currencyCode: string = 'EUR';
 
   constructor() { }
@@ -30,9 +30,9 @@ export class CustomersListComponent implements OnInit {
   }
 
   calculateOrders(){
-    this.customersOderTotal = 0;
+    this.customersOrderTotal = 0;
     this.filteredCustomers.forEach((customer: Customer) =>{
-      this.customersOderTotal += customer.orderTotal;
+      this.customersOrderTotal += customer.orderTotal;
     });
   }
 

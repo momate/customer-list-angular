@@ -1,6 +1,6 @@
 <br/>
 <br/>
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Name</th>
@@ -9,13 +9,13 @@
         </tr>
     </thead>
     <tr *ngFor="let c of filteredCustomers">
-        <td> {{ c.name }} </td>
+        <td> {{ c.name | titlecase }} </td>
         <td> {{ c.city }} </td>
-        <td> {{ c.orederTotal }} </td>
+        <td> {{ c.orderTotal | currency:[currencyCode] }} </td>
     </tr>
     <tr *ngIf="filteredCustomers && filteredCustomers.length; else elseBlock">
         <td colspan="2">&nbsp;</td>
-        <td> {{ customersOrderTotal }} </td>
+        <td> {{ customersOrderTotal | currency:[currencyCode]  }} </td>
     </tr>
     <ng-template #elseBlock>
         <tr>
@@ -25,5 +25,5 @@
 
 
 </table>
-Number of Customers: {{ filteredCustomers.length }}
+Number of Customers: <strong>{{ filteredCustomers.length }}</strong> 
 
