@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   declarations: [CustomersComponent, CustomersListComponent],
   imports: [
     CommonModule,
-  ]
+  ],
+  exports: [CustomersComponent]
 })
 export class CustomersModule { }

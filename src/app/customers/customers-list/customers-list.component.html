@@ -1,1 +1,29 @@
-<p>customers-list works!</p>
+<br/>
+<br/>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Order Total</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let c of filteredCustomers">
+        <td> {{ c.name }} </td>
+        <td> {{ c.city }} </td>
+        <td> {{ c.orederTotal }} </td>
+    </tr>
+    <tr *ngIf="filteredCustomers && filteredCustomers.length; else elseBlock">
+        <td colspan="2">&nbsp;</td>
+        <td> {{ customersOrderTotal }} </td>
+    </tr>
+    <ng-template #elseBlock>
+        <tr>
+            <td colspan="4">No customers found!</td>
+        </tr>
+    </ng-template>
+
+
+</table>
+Number of Customers: {{ filteredCustomers.length }}
+
