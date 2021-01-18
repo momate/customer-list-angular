@@ -36,4 +36,16 @@ export class CustomersListComponent implements OnInit {
     });
   }
 
+  filter(data: string){
+    if(data){
+      this.filteredCustomers = this.customers.filter((c: Customer) =>{
+        return c.name.toLocaleLowerCase().indexOf(data.toLowerCase()) > -1 ||
+        c.city.toLocaleLowerCase().indexOf(data.toLowerCase()) > -1 ||
+        c.orderTotal.toString().indexOf(data) > -1;
+      });
+    }else{
+      this.filteredCustomers = this.customers;
+    }
+    this.calculateOrders();
+  }
 }
