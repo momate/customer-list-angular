@@ -1,4 +1,4 @@
-import { Customer } from './../shared/interfaces';
+import { Customer, Order } from './../shared/interfaces';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -31,6 +31,17 @@ export class CustomerService {
           }),
           catchError(this.errorHandler)
         );
+  }
+
+  getOrdersByCustomerId(id: number): Observable<Order[]>{
+    return this.http.get<Order[]>(this._baseUrl + 'orders.json')
+          .pipe(
+            map(orders =>{
+              let customerOrders = orders.filter((o: Order) => o.customerId === id);
+              return customerOrders;
+            }),
+            catchError(this.errorHandler)
+          );
   }
   
   errorHandler(error: any){
