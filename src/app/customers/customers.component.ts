@@ -1,3 +1,4 @@
+import { CustomerService } from './../core/customer.service';
 import { Customer } from './../shared/interfaces';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,17 +13,13 @@ export class CustomersComponent implements OnInit {
   people: Customer[];
 
 
-  constructor() { }
+  constructor(private _customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.title = 'Customers';
-    this.people = [
-    { id: 1, name: 'Tom Tom', city: 'Amsterdam', orderTotal: 9.99},
-    { id: 2, name: 'Don Don', city: 'Los Angeles', orderTotal: 19.99},
-    { id: 3, name: 'Fon Fon', city: 'London', orderTotal: 99.99},
-    { id: 4, name: 'Tin Tin', city: 'New York', orderTotal: 299.99},
-];
-
+    this._customerService.getCustomers()
+        .subscribe((customers: Customer[]) => 
+          this.people = customers);
   }
 
 }
