@@ -1,8 +1,10 @@
 import { Customer } from './../shared/interfaces';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators'
+import { throwError } from 'rxjs';
+
 
 @Injectable()
 export class CustomerService {
@@ -13,7 +15,10 @@ export class CustomerService {
 
   getCustomers(): Observable<Customer[]>{
 
-    return this.http.get<Customer[]>(this._baseUrl + 'customers.json');
+    return this.http.get<Customer[]>(this._baseUrl + 'customers.json')
+            .pipe(
+              catchError(this.errorHandler)
+              );
         
   }
 
@@ -23,9 +28,14 @@ export class CustomerService {
           map(customers =>{
             let customer = customers.filter((c: Customer) => c.id === id);
             return customer[0];
-          })
+          }),
+          catchError(this.errorHandler)
         );
-  } 
+  }
+  
+  errorHandler(error: any){
+    return throwError(error.message || "Server Error");
+  }
 
 
 }

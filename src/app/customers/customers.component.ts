@@ -11,6 +11,7 @@ export class CustomersComponent implements OnInit {
 
   title: string;
   people: Customer[];
+  error: string;
 
 
   constructor(private _customerService: CustomerService) { }
@@ -18,8 +19,11 @@ export class CustomersComponent implements OnInit {
   ngOnInit(): void {
     this.title = 'Customers';
     this._customerService.getCustomers()
-        .subscribe((customers: Customer[]) => 
-          this.people = customers);
+        .subscribe((customers: Customer[]) => { 
+          this.people = customers 
+        }, (error) =>{
+            this.error = error;
+          });
   }
 
 }
