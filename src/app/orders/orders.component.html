@@ -1,9 +1,9 @@
 <div *ngIf="customer">
-    <h1>Orders for {{ customer.name | capitalize }}</h1>
-
+    <h1>Orders for {{ customer.name | titlecase }}</h1>
+    <br>
     <table class="table table-hover orders-table"
-        *ngFor="let o for orders">
-        <tr *ngFor="let oItem for o.orderItems" >
+          *ngFor="let o of orders">
+        <tr *ngFor="let oItem of o.orderItems" >
             <td> {{ oItem.productName }}</td>
             <td> {{ oItem.itemCost | currency }} </td>
         </tr>
@@ -13,3 +13,4 @@
     No customer found
 </div>
 <br>
+<a [routerLink]="['/customers']" routerLinkActive="router-link-active" >Back</a>

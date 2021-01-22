@@ -1,0 +1,10 @@
+.orders-table{
+  margin: 20;
+}
+
+a{
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bolder;
+  color:  chocolate;
+}

@@ -19,11 +19,10 @@ export class CustomerService {
             .pipe(
               catchError(this.errorHandler)
               );
-        
   }
 
   getCustomerById(id: number): Observable<Customer>{
-     return this.http.get<Customer[]>(this._baseUrl + 'customer.json')
+     return this.http.get<Customer[]>(this._baseUrl + 'customers.json')
         .pipe(
           map(customers =>{
             let customer = customers.filter((c: Customer) => c.id === id);
@@ -43,7 +42,7 @@ export class CustomerService {
             catchError(this.errorHandler)
           );
   }
-  
+
   errorHandler(error: any){
     return throwError(error.message || "Server Error");
   }
