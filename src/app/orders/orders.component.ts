@@ -1,6 +1,6 @@
 import { CustomerService } from './../core/customer.service';
 import { Order, Customer } from './../shared/interfaces';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OrdersComponent implements OnInit {
 
-  orders: Order[] = [];
+  orders: Order[];
   customer: Customer;
 
   constructor(private customerService: CustomerService,
