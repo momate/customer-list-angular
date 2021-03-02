@@ -3,3 +3,8 @@ a {
   font-weight: bolder;
   color: grey;
 }
+
+button{
+  float: right;
+  margin: 10px;
+}

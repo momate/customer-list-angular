@@ -1,0 +1,17 @@
+<h1>Add Customer</h1>
+<br>
+<div class="add" >
+<form [formGroup]="addForm" >
+
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" formControlName='name'required><br>
+    <label for="city">City:</label>
+    <br>
+    <input type="text" formControlName='city' required><br><br>
+    <button class="btn btn-primary" (click)="add()">Add</button>
+
+
+</form>
+</div>
+

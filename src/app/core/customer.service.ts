@@ -43,6 +43,10 @@ export class CustomerService {
           );
   }
 
+  addCustomer(name: string, city: string){
+      //save the customer
+  }
+
   errorHandler(error: any){
     return throwError(error.message || "Server Error");
   }
