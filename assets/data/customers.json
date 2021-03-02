@@ -1,0 +1,26 @@
+ [   
+    {   "id": 1, 
+        "name": "Tom Tom", 
+        "city": "Amsterdam", 
+        "orderTotal": 9.99
+    },
+
+    {   "id": 2, 
+        "name": "Dom Dom", 
+        "city": "New York", 
+        "orderTotal": 769.99
+    },
+
+    {   "id": 3, 
+        "name": "Fin Fin", 
+        "city": "London", 
+        "orderTotal": 19.99
+    },
+
+    {   "id": 4, 
+        "name": "Son son", 
+        "city": "Budapest", 
+        "orderTotal": 79.99
+    }
+    
+ ]
